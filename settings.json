@@ -6,7 +6,7 @@
     "type": "offline"
   },
   "server": {
-    "ip": "tope.aternos.host",
+    "ip": "185.107.193.86",
     "port": 18296,
     "version": "",
     "try-creative": false
