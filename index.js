@@ -1185,6 +1185,30 @@ function getReconnectDelay() {
   return delay + jitter;
 }
 
+function testTCPConnection() {
+  const socket = net.createConnection({
+    host: config.server.ip,
+    port: config.server.port,
+    timeout: 10000
+  });
+
+  socket.on("connect", () => {
+    addLog("[TCP TEST] SUCCESS - TCP connection to Minecraft server works!");
+    socket.destroy();
+  });
+
+  socket.on("timeout", () => {
+    addLog("[TCP TEST] TIMEOUT - TCP connection blocked/unreachable");
+    socket.destroy();
+  });
+
+  socket.on("error", (err) => {
+    addLog(`[TCP TEST] FAILED - ${err.code}: ${err.message}`);
+  });
+}
+
+testTCPConnection();
+
 function createBot() {
   if (isReconnecting) {
     addLog("[Bot] Already reconnecting, skipping...");
