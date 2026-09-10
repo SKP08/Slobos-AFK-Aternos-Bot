@@ -6,7 +6,7 @@
     "type": "offline"
   },
   "server": {
-    "ip": "Torki864.aternos.me:18296",
+    "ip": "Torki864.aternos.me",
     "port": 18296,
     "version": "",
     "try-creative": false
